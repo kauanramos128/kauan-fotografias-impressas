@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;600;700&display=swap');
+
+:root {
+    --bg: #06060a;
+    --card-bg: #0e0e16;
+    --neon-blue: #00f3ff;
+    --neon-pink: #ff00ff;
+    --text: #e8e8e8;
+    --dim: #888;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    background-image: 
+        linear-gradient(rgba(0, 243, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 243, 255, 0.02) 1px, transparent 1px);
+    background-size: 30px 30px;
+    min-height: 100vh;
+}
+
+.header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(180deg, rgba(0, 243, 255, 0.08) 0%, transparent 100%);
+    border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+}
+
+.logo h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.2rem;
+    color: var(--neon-blue);
+    text-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+    letter-spacing: 3px;
+    margin-top: 10px;
+}
+
+.icon {
+    font-size: 2rem;
+}
+
+.subtitle {
+    color: var(--dim);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin-top: 5px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.intro h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.intro p {
+    color: var(--dim);
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid rgba(0, 243, 255, 0.15);
+    border-radius: 2px;
+    padding: 30px 20px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 25px rgba(0, 243, 255, 0.2);
+}
+
+.card.premium {
+    border-color: var(--neon-pink);
+    background: linear-gradient(180deg, rgba(255, 0, 255, 0.05) 0%, var(--card-bg) 100%);
+}
+
+.card.premium:hover {
+    box-shadow: 0 0 25px rgba(255, 0, 255, 0.3);
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 243, 255, 0.2);
+    color: var(--neon-blue);
+    padding: 4px 10px;
+    font-size: 0.7rem;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+}
+
+.badge.best {
+    background: rgba(255, 0, 255, 0.2);
+    color: var(--neon-pink);
+}
+
+.card h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--neon-blue);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.card.premium h3 {
+    color: var(--neon-pink);
+}
+
+.qty {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.qty span {
+    font-size: 1rem;
+    color: var(--dim);
+}
+
+.price {
+    font-size: 2rem;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    margin: 10px 0 5px;
+}
+
+.unit {
+    color: var(--dim);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background: transparent;
+    border: 2px solid var(--neon-blue);
+    color: var(--neon-blue);
+    padding: 12px 25px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    background: var(--neon-blue);
+    color: #000;
+    box-shadow: 0 0 20px var(--neon-blue);
+}
+
+.single {
+    text-align: center;
+    padding: 30px;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    margin-bottom: 40px;
+}
+
+.single h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.single .btn-outline {
+    margin-top: 15px;
+    width: auto;
+    min-width: 200px;
+}
+
+.footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--dim);
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer p:first-child {
+    color: var(--neon-blue);
+    margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+}
