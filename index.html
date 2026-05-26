@@ -171,9 +171,9 @@
             let desconto = 0;
             let msgDesconto = '';
             if (totalFotos >= 40) {
-                desconto = totalValor * 0.07;
+                desconto = totalValor * 0.00;
                 totalValor = totalValor - desconto;
-                msgDesconto = '🎉 7% DESCONTO APLICADO!';
+                msgDesconto = !';
                 document.getElementById('cartDesconto').style.display = 'block';
             } else {
                 document.getElementById('cartDesconto').style.display = 'none';
