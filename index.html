@@ -152,7 +152,7 @@
                 if(name === '1 Foto') btn.innerText = 'Comprar 1 Foto';
                 else if(name === 'Pacote Basicão') btn.innerText = 'Comprar 10 Fotos';
                 else if(name === 'Pacote Família') btn.innerText = 'Comprar 20 Fotos';
-                else if(name === 'Pacote super') btn.innerText = 'Comprar 30 Fotos';
+                else if(name === 'Pacotão') btn.innerText = 'Comprar 30 Fotos';
             }, 1000);
         }
         
@@ -192,16 +192,14 @@
             
             let totalFotos = 0;
             let totalValor = 0;
-            let msg = 'Olá! Gostaria de fazer o seguinte pedido:\n\n';
             
             cart.forEach(item => {
                 totalFotos += item.qty;
                 totalValor += item.price;
-                msg += '• ' + item.name + ': R$ ' + item.price.toFixed(2).replace('.', ',') + '\n';
             });
             
-            msg += '\nTotal: R$ ' + totalValor.toFixed(2).replace('.', ',') + '\n';
-            msg += ' (' + totalFotos + ' fotos)';
+            // Mensagem resumida apenas com total de fotos e valor
+            let msg = `Olá! Gostaria de fazer um pedido:\n\nTotal: ${totalFotos} fotos\nValor: R$ ${totalValor.toFixed(2).replace('.', ',')}`;
             
             window.open('https://wa.me/5543996422262?text=' + encodeURIComponent(msg), '_blank');
         }
