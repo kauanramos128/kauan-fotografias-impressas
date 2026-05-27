@@ -50,7 +50,6 @@
         .cart-item span:last-child { color: #00f3ff; }
         .cart-empty { text-align: center; color: #888; padding: 30px; font-size: 13px; }
         .cart-total { padding: 15px; border-top: 1px solid rgba(0, 243, 255, 0.2); display: flex; justify-content: space-between; font-family: 'Orbitron', sans-serif; color: #e8e8e8; font-size: 16px; }
-        .cart-desconto { padding: 10px; background: rgba(0, 255, 0, 0.1); color: #00ff00; text-align: center; font-size: 13px; border-bottom: 1px solid rgba(0, 255, 0, 0.3); }
         .cart-actions { padding: 15px; display: flex; gap: 10px; }
         .cart-finish { flex: 1; background: #00f3ff; border: none; color: #000; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; }
         .cart-clear { background: transparent; border: 1px solid #ff4444; color: #ff4444; padding: 10px; border-radius: 5px; cursor: pointer; }
@@ -130,6 +129,7 @@
         <div class="cart-items" id="cartItems">
             <p class="cart-empty">Nenhum item adicionado.</p>
         </div>
+        <div class="cart-total">
             <span>Total:</span>
             <span id="finalTotal">R$ 0,00</span>
         </div>
@@ -167,20 +167,8 @@
                 html += `<div class="cart-item"><span>${item.name}</span><span>R$ ${item.price.toFixed(2).replace('.', ',')}</span></div>`;
             });
             
-            // Verificar desconto de 7% para 40+ fotos
-            let desconto = 0;
-            let msgDesconto = '';
-            if (totalFotos >= 40) {
-                desconto = totalValor * 0.00;
-                totalValor = totalValor - desconto;
-                msgDesconto = !';
-                document.getElementById('cartDesconto').style.display = 'block';
-            } else {
-                document.getElementById('cartDesconto').style.display = 'none';
-            }
-            
             document.getElementById('cartQty').innerText = totalFotos;
-            document.getElementById('cartTotal').innerText = 'R$ ' + (totalValor + desconto).toFixed(2).replace('.', ',');
+            document.getElementById('cartTotal').innerText = 'R$ ' + totalValor.toFixed(2).replace('.', ',');
             document.getElementById('cartItems').innerHTML = html || '<p class="cart-empty">Nenhum item adicionado.</p>';
             document.getElementById('finalTotal').innerText = 'R$ ' + totalValor.toFixed(2).replace('.', ',');
         }
@@ -211,14 +199,6 @@
                 totalValor += item.price;
                 msg += '• ' + item.name + ': R$ ' + item.price.toFixed(2).replace('.', ',') + '\n';
             });
-            
-            // Aplicar desconto se 40+ fotos
-            let desconto = 0;
-            if (totalFotos >= 40) {
-                desconto = totalValor * 0.07;
-                totalValor = totalValor - desconto;
-                msg += '\n✨ Promoção applied: 7% DESCONTO (R$ ' + desconto.toFixed(2).replace('.', ',') + ' off)\n';
-            }
             
             msg += '\nTotal: R$ ' + totalValor.toFixed(2).replace('.', ',') + '\n';
             msg += ' (' + totalFotos + ' fotos)';
